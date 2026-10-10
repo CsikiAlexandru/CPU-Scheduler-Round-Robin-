@@ -6,9 +6,8 @@ class planificator
 {
     std::queue<proces> coada_procese;
     int cuanta_timp;
-
 public:
     planificator(int cuanta = 0);
     void adauga_proces(proces p);
-    void ruleaza();
+    void ruleaza(const char *f_iesire);
 };

@@ -1,5 +1,6 @@
 #include <queue>
 #include <iostream>
+#include <fstream>
 #include "Proces.h"
 #include "Planificator.h"
 using namespace std;
@@ -12,9 +13,15 @@ void planificator::adauga_proces(proces p)
     this->coada_procese.push(p);
 }
 
-void planificator::ruleaza()
+void planificator::ruleaza(const char *f_iesire)
 {
-    cout << "Incepe Simularea ROUND ROBIN \n";
+    ofstream f(f_iesire);
+    if (!f.is_open())
+    {
+        cout << "Fisier de iesire invalid \n";
+        return;
+    }
+    f << "Incepe Simularea ROUND ROBIN \n";
 
     while (!this->coada_procese.empty())
     {
@@ -22,13 +29,14 @@ void planificator::ruleaza()
         p_curent = this->coada_procese.front();
         this->coada_procese.pop();
         p_curent.ruleaza(this->cuanta_timp);
-        cout << "Procesul cu id-ul " << p_curent.get_id() << " a rulat.";
-        cout << "Timp de executie ramas: " << p_curent.get_timp_ramas() << endl;
+        f << "Procesul cu id-ul " << p_curent.get_id() << " a rulat.";
+        f << "Timp de executie ramas: " << p_curent.get_timp_ramas() << endl;
 
         if (p_curent.este_gata() == true)
-            cout << "Procesul cu id-ul " << p_curent.get_id() << " este gata." << endl;
+            f << "Procesul cu id-ul " << p_curent.get_id() << " este gata." << endl;
         else
             this->adauga_proces(p_curent);
     }
-    cout << "Toate procesele au rulat cu succes!" << endl;
+    f << "Toate procesele au rulat cu succes!" << endl;
+    cout << "Simulare finalizata cu succes! Rezultatele au fost salvate in " << f_iesire << endl;
 }
