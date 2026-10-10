@@ -30,7 +30,7 @@ This project simulates Operating System process scheduling. It reads process dat
 2. **Run the executable:**
 
    ```bash
-   ./scheduler <fisier_intrare> <fisier_iesire> [cuanta_timp]
+   ./scheduler <fisier_intrare> <fisier_iesire> [quantum]
    ```
 
    **Examples:**
