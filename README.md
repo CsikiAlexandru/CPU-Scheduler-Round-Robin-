@@ -1,34 +1,42 @@
-Round Robin CPU Scheduler
-   A C++ application that simulates the Round Robin process scheduling algorithm.
+# Round Robin CPU Scheduler
 
-Overview
-   This project simulates basic Operating System process scheduling. It is implemented in C++ using Object-Oriented Programming (OOP) principles and std::queue for process queue management.
+A C++ application that simulates the Round Robin process scheduling algorithm.
 
-Features
-   -Round Robin scheduling algorithm
-   -Modular design (Proces and Planificator classes)
-   -Input parsing from text files using std::ifstream
-   -Build management using Makefile
-   
-Requirements
-   -g++ (C++11 or newer)
-   -make
+## Overview
+This project simulates basic Operating System process scheduling. It is implemented in C++ using Object-Oriented Programming (OOP) principles and `std::queue` for process queue management.
 
-Building and Running
-   1. Compile the project:
-      make
+## Features
+- Round Robin scheduling algorithm
+- Modular design (`Proces` and `Planificator` classes)
+- Input parsing from text files using `std::ifstream`
+- Build management using `Makefile`
 
+## Requirements
+- `g++` (C++11 or newer)
+- `make`
 
-   2. Run the executable:
-      ./scheduler fisier_procese.txt
+## Building and Running
 
-   3. Clean build files:
-      make clean
+1. **Compile the project:**
+   ```bash
+   make
+   ```
 
+2. **Run the executable:**
+   ```bash
+   ./scheduler fisier_procese.txt
+   ```
 
-Input File Format
-   The input file contains space-separated pairs of Process_ID and Burst_Time:
+3. **Clean build files:**
+   ```bash
+   make clean
+   ```
 
-   1 10
-   2 4
-   3 7
+## Input File Format
+The input file contains space-separated pairs of `Process_ID` and `Burst_Time`:
+
+```text
+1 10
+2 4
+3 7
+```
